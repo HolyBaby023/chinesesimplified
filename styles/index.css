@@ -1,0 +1,212 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300&family=Raleway:wght@300&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+img {
+  max-width: 100%;
+}
+
+.background {
+  z-index: -1;
+  height: 100vh;
+  width: 100vw;
+  position: absolute;
+}
+
+.background img {
+  height: 100vh;
+  width: 100vw;
+  object-fit: cover;
+}
+
+.background-overlay {
+  display: block;
+  position: absolute;
+  background: linear-gradient(0deg, #00000066 100%, #ffffff44 20%);
+  top: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.logo-holder {
+  display: flex;
+  justify-content: center;
+  padding: 0.5em;
+  position: relative;
+}
+
+.logo {
+  width: 75px;
+  order: 1;
+}
+
+header {
+  display: flex;
+
+  font-weight: 300;
+  flex-direction: column;
+}
+
+.nav {
+  top: 0;
+  font-family: "Raleway", sans-serif;
+  height: 100vh;
+  width: 100%;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  color: black;
+  background: white;
+  transform: scale(0, 1);
+  transition: transform 200ms ease-in-out;
+  transform-origin: right;
+}
+
+.nav a {
+  text-decoration: none;
+  color: black;
+  opacity: 0;
+}
+
+.nav > div {
+  padding: 1em;
+}
+
+.nav-bar {
+  display: none;
+}
+
+.nav-bar:checked ~ .nav {
+  transform: scale(1, 1);
+}
+
+.nav-bar:checked ~ .nav a {
+  opacity: 1;
+  transition: opacity 100ms ease-in-out 200ms;
+}
+
+.nav-bar:checked ~ .nav-label span {
+  background: black;
+}
+
+.nav-bar:checked ~ .nav-label span::before {
+  background: black;
+}
+
+.nav-bar:checked ~ .nav-label span::after {
+  background: black;
+}
+
+.nav-label {
+  position: absolute;
+  z-index: 2;
+  top: 0;
+  right: 7%;
+  cursor: pointer;
+  display: flex;
+  height: 6em;
+  align-items: center;
+}
+
+.nav-label span {
+  display: block;
+  width: 25px;
+  height: 2px;
+  background: white;
+  position: relative;
+}
+
+.nav-label span::before,
+.nav-label span::after {
+  position: absolute;
+  background: white;
+  content: "";
+  width: 25px;
+  height: 2px;
+  display: block;
+}
+
+.nav-label span::before {
+  top: 7px;
+}
+
+.nav-label span::after {
+  bottom: 7px;
+}
+
+.expand-more {
+  display: none;
+}
+
+main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  color: white;
+  font-family: "Raleway";
+  height: 70vh;
+  font-size: 1.3em;
+}
+
+main > * {
+  padding: 1em;
+}
+
+main a {
+  color: #ff4e77;
+}
+
+@media (min-width: 600px) {
+  .nav {
+    transform: scale(1, 1);
+    background: none;
+    flex-direction: row;
+    height: inherit;
+    padding-top: 1em;
+    overflow: hidden;
+  }
+
+  .nav a {
+    color: white;
+    opacity: 1;
+  }
+
+  .nav > div {
+    padding: 1em 3em;
+  }
+
+  .nav div:nth-child(2) {
+    padding-left: 35em;
+  }
+  .nav div:nth-child(1) {
+    padding-right: 5em;
+  }
+
+  .nav-label {
+    display: none;
+  }
+
+  .lessons {
+    display: flex;
+    position: relative;
+  }
+
+  .expand-more {
+    display: block;
+    right: 45px;
+    bottom: 25%;
+    position: absolute;
+    cursor: pointer;
+  }
+
+  main {
+    font-size: 1.5em;
+  }
+}
