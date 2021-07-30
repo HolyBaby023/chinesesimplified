@@ -7,6 +7,7 @@
     <title>Chinese Simplified</title>
     <link rel="stylesheet" href="./styles/index.css" />
     <link rel="icon" href="./assets/sprig.png" />
+    <script src="./script.js" defer></script>
   </head>
   <body>
     <div class="background">
@@ -22,30 +23,44 @@
     <label for="nav-bar" class="nav-label"><span></span></label>
     <div class="nav">
       <div class="lessons">
-        <h3><a href="#">Lessons</a></h3>
-        <svg
-        class="expand-more"
-          xmlns="http://www.w3.org/2000/svg"
-          height="24px"
-          viewBox="0 0 24 24"
-          width="24px"
-          fill="white"
-        >
-          <path d="M24 24H0V0h24v24z" fill="none" opacity=".87" />
-          <path d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6-1.41-1.41z" />
-        </svg>
+        <div class="lessons-wrapper">
+          <h3 class="lessons-title"><a href="#">Lessons</a></h3>
+          <svg
+            class="expand-more"
+            xmlns="http://www.w3.org/2000/svg"
+            height="24px"
+            viewBox="0 0 24 24"
+            width="24px"
+            fill="white"
+          >
+            <path d="M24 24H0V0h24v24z" fill="none" opacity=".87" />
+            <path d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6-1.41-1.41z" />
+          </svg>
+        </div>
+        <div class="lessons-ul">
+          <ul>
+            <li><a href="#">Lessons 1 - 10</a></li>
+            <li><a href="#">Lessons 10 - 20</a></li>
+          </ul>
+        </div>
       </div>
+    
       <div class="grammars">
         <h3><a href="#">Grammar</a></h3>
       </div>
       <div class="vocabulary">
-        <h3><a href="#">Vocabulary</a></h3>
+        <h3><a href="/vocab.html">Vocabulary</a></h3>
       </div>
     </div>
 
     <main>
       <h2>Chinese Simplified</h2>
-      <h5>Project by <a href="https://www.youtube.com/zhiyuanliuviolin" target="_blank">BeeCee</a></h5>
+      <h5>
+        Project by
+        <a href="https://www.youtube.com/zhiyuanliuviolin" target="_blank"
+          >BeeCee</a
+        >
+      </h5>
     </main>
   </body>
 </html>
