@@ -52,11 +52,11 @@ header {
 }
 
 .nav {
+  position: absolute;
   top: 0;
   font-family: "Raleway", sans-serif;
   height: 100vh;
   width: 100%;
-  position: absolute;
   display: flex;
   justify-content: center;
   flex-direction: column;
@@ -163,14 +163,46 @@ main a {
   color: #ff4e77;
 }
 
+.home {
+  display: none;
+}
+
+.lessons-ul {
+  display: none;
+}
+
 @media (min-width: 600px) {
   .nav {
     transform: scale(1, 1);
     background: none;
-    flex-direction: row;
-    height: inherit;
-    padding-top: 1em;
-    overflow: hidden;
+    display: grid;
+    height: 6em;
+    grid-template-columns: 2fr 1fr 1fr;
+    grid-template-rows: 1fr;
+  }
+
+  .nav a:hover:not(.lessons-ul a) {
+    color: #ff4e77;
+  }
+
+  .expand-more:hover {
+    fill: #ff4e77;
+  }
+
+  .lessons {
+    grid-column: 1/2;
+    justify-self: center;
+    position: relative;
+  }
+
+  .grammars {
+    grid-column: 2/3;
+    justify-self: end;
+  }
+
+  .vocabulary {
+    grid-column: 3/4;
+    justify-self: center;
   }
 
   .nav a {
@@ -178,35 +210,57 @@ main a {
     opacity: 1;
   }
 
-  .nav > div {
-    padding: 1em 3em;
-  }
-
-  .nav div:nth-child(2) {
-    padding-left: 35em;
-  }
-  .nav div:nth-child(1) {
-    padding-right: 5em;
-  }
-
   .nav-label {
     display: none;
   }
 
-  .lessons {
+  .lessons-title {
     display: flex;
-    position: relative;
   }
 
   .expand-more {
     display: block;
-    right: 45px;
-    bottom: 25%;
+    right: -20px;
+    top: 18px;
     position: absolute;
     cursor: pointer;
   }
 
   main {
     font-size: 1.5em;
+  }
+
+  .lessons-ul {
+    display: none;
+    position: absolute;
+    white-space: nowrap;
+    background: white;
+    border-radius: 0.4em;
+    top: 50px;
+  }
+
+  .lessons-ul li {
+    list-style: none;
+    padding: 1em;
+    cursor: pointer;
+  }
+
+  .lessons-ul li:nth-child(1) {
+    border-radius: 0.4em 0.4em 0 0;
+  }
+  .lessons-ul li:nth-child(2) {
+    border-radius: 0em 0em 0.4em 0.4em;
+  }
+
+  .lessons-ul a {
+    color: black;
+  }
+
+  .lessons-ul li:hover {
+    background: #ff4e77;
+  }
+
+  .show {
+    display: block;
   }
 }
