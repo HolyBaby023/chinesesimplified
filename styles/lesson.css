@@ -1,9 +1,9 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300&family=Raleway:wght@300&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300&display=swap");
 
 *,
 *::before,
 *::after {
-  font-family: "Raleway", sans-serif;
   list-style: none;
   box-sizing: border-box;
   margin: 0;
@@ -11,21 +11,12 @@
   scroll-behavior: smooth;
 }
 
+body {
+  background: white;
+}
+
 body::-webkit-scrollbar {
   width: 0.4em;
-}
-
-body::-webkit-scrollbar-thumb {
-  background: linear-gradient(
-    to bottom,
-    hsl(90, 100%, 79%),
-    hsl(90, 100%, 91%)
-  );
-}
-
-body {
-  overflow-x: hidden;
-  background: url(../assets/vocabbackground.jpg);
 }
 
 header {
@@ -66,99 +57,6 @@ header {
   font-size: 1.8em;
 }
 
-.sub {
-  flex-direction: column;
-  display: flex;
-}
-
-.sub a {
-  margin-top: 1.3em;
-  text-decoration: none;
-  font-size: 1em;
-  text-align: center;
-  color: black;
-  background: rgb(102, 253, 114);
-  padding: 0.5em 5em;
-  border-radius: 0.7em;
-}
-
-.sub a:hover {
-  box-shadow: -1px 0px 22px rgba(22, 4, 4, 0.5);
-  transform: scale(1.1, 1.1);
-}
-
-footer {
-  background: linear-gradient(to right, rgb(75, 207, 75), rgb(58, 171, 223));
-  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
-    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
-  text-align: center;
-  justify-content: center;
-  display: flex;
-  align-items: center;
-  padding: 1em 0 1em 0;
-  overflow: hidden;
-  width: 100%;
-  bottom: 0;
-  margin-top: 3em;
-}
-footer a {
-  color: black;
-  text-decoration: none;
-}
-
-footer a:hover {
-  color: white;
-}
-
-caption {
-  text-align: center;
-  color: rgb(58, 171, 223);
-  font-size: 1.8em;
-}
-
-table {
-  width: 80%;
-  margin: 0 auto;
-  box-shadow: 2px 2px 8px #000000;
-  background: hsl(0, 0%, 13%);
-  border-collapse: collapse;
-  position: relative;
-  margin-top: 3em;
-  font-size: 20px;
-}
-
-tr,
-td {
-  padding: 0.5em 2em;
-  color: hsl(0, 0%, 82%);
-}
-
-th {
-  background: hsl(0, 0%, 22%);
-  letter-spacing: 1px;
-  text-align: left;
-  color: rgb(102, 253, 114);
-  padding: 0.5em 0 0.5em 2em;
-  position: relative;
-}
-
-tr {
-}
-
-tr:hover {
-  cursor: pointer;
-  background: hsl(0, 0%, 22%);
-}
-
-tr::before {
-  content: "";
-  height: 0.5px;
-  background: hsl(0, 0%, 10%);
-  position: absolute;
-  width: 100%;
-  bottom: 1;
-}
-
 .nav {
   position: absolute;
   top: 0;
@@ -170,6 +68,7 @@ tr::before {
   flex-direction: column;
   align-items: center;
   color: black;
+  z-index: 11;
   background: white;
   transform: scale(0, 1);
   transition: transform 200ms ease-in-out;
@@ -213,7 +112,7 @@ tr::before {
 
 .nav-label {
   position: absolute;
-  z-index: 2;
+  z-index: 999;
   top: 0;
   right: 7%;
   cursor: pointer;
@@ -223,17 +122,18 @@ tr::before {
 }
 
 .nav-label span {
+  z-index: 999;
   display: block;
   width: 25px;
   height: 2px;
-  background: white;
+  background: black;
   position: relative;
 }
 
 .nav-label span::before,
 .nav-label span::after {
   position: absolute;
-  background: white;
+  background: black;
   content: "";
   width: 25px;
   height: 2px;
@@ -256,6 +156,72 @@ tr::before {
   display: none;
 }
 
+main {
+  display: grid;
+  justify-content: center;
+}
+.card {
+  background: #f0f44f;
+  font-size: 0.8em;
+  padding: 1em 1em;
+  margin: 1em;
+  position: relative;
+  border-radius: 0.5em;
+  font-family: "Noto Sans SC", sans-serif;
+  width: 450px;
+  max-width: 100%;
+  box-shadow: 1px 1px 10px #00000050;
+}
+
+.card-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  width: 100%;
+  font-family: "Noto Sans SC", sans-serif;
+  padding: 1em 0;
+}
+
+.card-content > h2 {
+  padding: 0.2em 1em;
+  font-size: 1.5em;
+}
+
+.lesson-name {
+  position: absolute;
+  top: -10px;
+  left: 20px;
+  padding: 0.05em 1em;
+  padding-bottom: 0.2em;
+  background: #ff4e77;
+  border-radius: 0.3em;
+}
+
+.lesson-link-holder {
+  position: absolute;
+  bottom: 12px;
+  right: 15px;
+  background: black;
+  border-radius: 0.3em;
+  padding: 0.2em 1em;
+  padding-right: 2em;
+}
+
+.lesson-link {
+  position: relative;
+  text-decoration: none;
+  font-size: 1.1em;
+  color: #f0f44f;
+}
+
+.lesson-link:hover {
+  color: white;
+}
+
+.arrow-thingy {
+  position: absolute;
+  top: 5%;
+}
+
 /* Desktop */
 
 @media (min-width: 600px) {
@@ -275,7 +241,6 @@ tr::before {
     grid-template-columns: repeat(12, 1fr);
     grid-template-rows: 1fr;
   }
-
   .lessons {
     grid-column: 4/5;
     position: relative;
@@ -303,8 +268,9 @@ tr::before {
     position: absolute;
     cursor: pointer;
   }
+
   .nav a {
-    color: white;
+    color: black;
     opacity: 1;
   }
 
@@ -324,15 +290,11 @@ tr::before {
     display: flex;
   }
 
-  main {
-    font-size: 1.5em;
-  }
-
   .lessons-ul {
     display: none;
     position: absolute;
     white-space: nowrap;
-    background: white;
+    background: black;
     border-radius: 0.4em;
     top: 50px;
   }
@@ -351,7 +313,7 @@ tr::before {
   }
 
   .lessons-ul a {
-    color: black;
+    color: white;
   }
 
   .lessons-ul li:hover {
@@ -360,5 +322,13 @@ tr::before {
 
   .show {
     display: block;
+  }
+
+  main {
+    grid-template-columns: 1fr 1fr;
+  }
+  main > .card {
+    justify-self: center;
+    width: 550px;
   }
 }
