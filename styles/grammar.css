@@ -1,0 +1,391 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300&family=Raleway:wght@300&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300&display=swap");
+
+*,
+*::before,
+*::after {
+  list-style: none;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  scroll-behavior: smooth;
+}
+
+body {
+  background: white;
+}
+
+body::-webkit-scrollbar {
+  width: 0.4em;
+}
+
+header {
+  display: flex;
+  font-weight: 300;
+  flex-direction: column;
+}
+
+.logo-holder {
+  display: flex;
+  justify-content: center;
+  padding: 0.5em;
+  position: relative;
+}
+
+.logo {
+  width: 75px;
+  order: 1;
+}
+
+.back img {
+  width: 70px;
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+}
+
+.menu {
+  margin-top: 2em;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.heading {
+  color: rgb(58, 171, 223);
+  font-size: 1.8em;
+}
+
+.nav {
+  position: absolute;
+  top: 0;
+  font-family: "Raleway", sans-serif;
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  color: black;
+  z-index: 11;
+  background: white;
+  transform: scale(0, 1);
+  transition: transform 200ms ease-in-out;
+  transform-origin: right;
+}
+
+.nav a {
+  text-decoration: none;
+  color: black;
+  opacity: 0;
+}
+
+.nav > div {
+  padding: 1em;
+}
+
+.nav-bar {
+  display: none;
+}
+
+.nav-bar:checked ~ .nav {
+  transform: scale(1, 1);
+}
+
+.nav-bar:checked ~ .nav a {
+  opacity: 1;
+  transition: opacity 100ms ease-in-out 200ms;
+}
+
+.nav-bar:checked ~ .nav-label span {
+  background: black;
+}
+
+.nav-bar:checked ~ .nav-label span::before {
+  background: black;
+}
+
+.nav-bar:checked ~ .nav-label span::after {
+  background: black;
+}
+
+.nav-label {
+  position: absolute;
+  z-index: 999;
+  top: 0;
+  right: 7%;
+  cursor: pointer;
+  display: flex;
+  height: 6em;
+  align-items: center;
+}
+
+.nav-label span {
+  z-index: 999;
+  display: block;
+  width: 25px;
+  height: 2px;
+  background: black;
+  position: relative;
+}
+
+.nav-label span::before,
+.nav-label span::after {
+  position: absolute;
+  background: black;
+  content: "";
+  width: 25px;
+  height: 2px;
+  display: block;
+}
+
+.nav-label span::before {
+  top: 7px;
+}
+
+.nav-label span::after {
+  bottom: 7px;
+}
+
+.expand-more {
+  display: none;
+}
+
+.lessons-ul {
+  display: none;
+}
+
+main {
+  display: grid;
+  justify-content: center;
+}
+.card {
+  background: #f0f44f;
+  font-size: 0.8em;
+  padding: 1em 1em;
+  margin: 1em;
+  position: relative;
+  border-radius: 0.5em;
+  font-family: "Noto Sans SC", sans-serif;
+  width: 450px;
+  max-width: 100%;
+  box-shadow: 1px 1px 10px #00000050;
+}
+
+.card-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  width: 100%;
+  font-family: "Noto Sans SC", sans-serif;
+  padding: 1em 0;
+}
+
+.card-content > h2 {
+  padding: 0.2em 1em;
+  font-size: 1.5em;
+}
+
+.lesson-name {
+  position: absolute;
+  top: -10px;
+  left: 20px;
+  padding: 0.05em 1em;
+  padding-bottom: 0.2em;
+  background: #ff4e77;
+  border-radius: 0.3em;
+}
+
+.lesson-link-holder {
+  position: absolute;
+  bottom: 12px;
+  right: 15px;
+  background: black;
+  border-radius: 0.3em;
+  padding: 0.2em 1em;
+  padding-right: 2em;
+}
+
+.lesson-link {
+  position: relative;
+  text-decoration: none;
+  font-size: 1.1em;
+  color: #f0f44f;
+}
+
+.lesson-link:hover {
+  color: white;
+}
+
+.arrow-thingy {
+  position: absolute;
+  top: 5%;
+}
+
+.fixed-card {
+  display: none;
+}
+
+/* Desktop */
+
+@media (min-width: 600px) {
+  .sub {
+    flex-direction: row;
+  }
+
+  .sub a {
+    margin-right: 1em;
+    padding: 0.4em 3.3em;
+  }
+  .nav {
+    transform: scale(1, 1);
+    background: none;
+    display: grid;
+    height: 6em;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: 1fr;
+  }
+  .lessons {
+    grid-column: 4/5;
+    position: relative;
+  }
+
+  .home {
+    grid-column: 2/4;
+    justify-self: center;
+  }
+
+  .grammars {
+    grid-column: 8/9;
+    justify-self: start;
+  }
+
+  .vocabulary {
+    grid-column: 9/11;
+    justify-self: center;
+  }
+
+  .expand-more {
+    display: block;
+    right: -5px;
+    top: 18px;
+    position: absolute;
+    cursor: pointer;
+  }
+
+  .nav a {
+    color: black;
+    opacity: 1;
+  }
+
+  .nav a:hover:not(.lessons-ul a) {
+    color: #ff4e77;
+  }
+
+  .expand-more:hover {
+    fill: #ff4e77;
+  }
+
+  .nav-label {
+    display: none;
+  }
+
+  .lessons-title {
+    display: flex;
+  }
+
+  .lessons-ul {
+    display: none;
+    position: absolute;
+    white-space: nowrap;
+    background: black;
+    border-radius: 0.4em;
+    top: 50px;
+  }
+
+  .lessons-ul li {
+    list-style: none;
+    padding: 1em;
+    cursor: pointer;
+  }
+
+  .lessons-ul li:nth-child(1) {
+    border-radius: 0.4em 0.4em 0 0;
+  }
+  .lessons-ul li:nth-child(2) {
+    border-radius: 0em 0em 0.4em 0.4em;
+  }
+
+  .lessons-ul a {
+    color: white;
+  }
+
+  .lessons-ul li:hover {
+    background: #ff4e77;
+  }
+
+  .show {
+    display: block;
+  }
+
+  main {
+    grid-template-columns: 1fr 1fr;
+  }
+  main > .card {
+    justify-self: center;
+    width: 550px;
+  }
+
+  .fixed-card {
+    display: flex;
+    position: fixed;
+    margin-left: 3em;
+    font-family: "Raleway", sans-serif;
+  }
+
+  .fixed-card ul {
+    padding: 1em 1em;
+  }
+  .fixed-card li {
+    padding: 0.4em 0;
+  }
+  .fixed-card a {
+    color: black;
+  }
+
+  .fixed-card a:hover {
+    color: #ff4e77;
+  }
+
+  .second {
+    display: none;
+  }
+
+  .show-2 {
+    display: flex;
+  }
+
+  .hide {
+    display: none;
+  }
+
+  .wrapper-up-down {
+    display: flex;
+  }
+
+  .wrapper-up-down li:nth-child(2) {
+    padding-left: 0.5em;
+  }
+
+  .third {
+    display: none;
+  }
+
+  .show-3 {
+    display: flex;
+  }
+
+  span {
+    font-weight: bold;
+  }
+}
