@@ -12,7 +12,8 @@
 }
 
 body {
-  background: white;
+  background: rgb(245, 245, 245);
+  background-image: url(../assets/lesson\ background2.jpg);
 }
 
 body::-webkit-scrollbar {
@@ -204,6 +205,7 @@ main {
   border-radius: 0.3em;
   padding: 0.2em 1em;
   padding-right: 2em;
+  padding-bottom: 0.4em;
 }
 
 .lesson-link {
@@ -267,10 +269,11 @@ main {
     top: 18px;
     position: absolute;
     cursor: pointer;
+    fill: white;
   }
 
   .nav a {
-    color: black;
+    color: white;
     opacity: 1;
   }
 
